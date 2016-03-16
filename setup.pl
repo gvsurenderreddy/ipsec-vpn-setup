@@ -69,8 +69,6 @@ $cmdout=`ifconfig eth0`;
 $cmdout=~m/inet addr:(([0-9]*\.){3}[0-9]*)(?)/;
 $PRIVATE_IP=$1 if !defined($PRIVATE_IP);
 
-print $PRIVATE_IP;
-print $PUBLIC_IP;
 #check IP format
 unless ($PUBLIC_IP=~m/^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/){
 	print "[ERROR]	Public Ip $PUBLIC_IP is not valid,please edit the script \n" ;
@@ -222,7 +220,7 @@ port = 1701
 ;debug state = yes
 ;debug tunnel = yes
 [lns default]
-ip range = 192.168.100.10-192.168.111.250
+ip range = 192.168.100.10-192.168.100.255
 local ip = 192.168.100.1
 require chap = yes
 refuse pap = yes
