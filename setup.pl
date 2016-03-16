@@ -101,7 +101,7 @@ my $SWAN_URL="https://download.libreswan.org/$SWAN_FILE";
 `wget -t 3 -T 30 -nv -O "$SWAN_FILE" "$SWAN_URL"`;
 `tar xvzf "$SWAN_FILE" && rm -f "$SWAN_FILE"`;
 chdir "libreswan-$SWAN_VER" or die $!;
-#`make programs && make install`;
+`make programs && make install`;
 
 # Check if Libreswan install was successful
 $cmdout=`/usr/local/sbin/ipsec --version`;
